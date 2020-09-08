@@ -10,6 +10,6 @@ import (
 func Index(field string, isUnique bool) mongo.IndexModel {
 	return mongo.IndexModel{
 		Keys:    bson.M{field: 1},
-		Options: options.Index().SetUnique(isUnique).SetName(field),
+		Options: options.Index().SetUnique(isUnique).SetName(field + "_idx"),
 	}
 }
