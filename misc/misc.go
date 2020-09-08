@@ -34,3 +34,14 @@ func FilenameToUUID(filename string) string {
 	uuid := uuid.New().String()
 	return fmt.Sprintf("%s.%s", uuid, names[len(names)-1])
 }
+
+// PopArrayStr ..
+func PopArrayStr(list []string, id string) []string {
+	out := []string{}
+	for _, v := range list {
+		if id != v {
+			out = append(out, v)
+		}
+	}
+	return out
+}
