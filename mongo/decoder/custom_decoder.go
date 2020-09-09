@@ -63,6 +63,7 @@ func TimeDecodeValue(dc bsoncodec.DecodeContext, vr bsonrw.ValueReader, val refl
 	default:
 		return fmt.Errorf("cannot decode %v into a time.Time", vrType)
 	}
+	timeVal = timeVal.Local()
 	val.Set(reflect.ValueOf(timeVal))
 	return nil
 }
