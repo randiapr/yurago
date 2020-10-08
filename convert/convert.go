@@ -86,3 +86,8 @@ func StrToMillis(date string) int64 {
 	dt, _ := time.Parse(ISO8601DT, date)
 	return DtToMillis(dt)
 }
+
+func StrDateTimeToMillis(date string) int64 {
+	dt, _ := time.Parse(ISO8601D, date)
+	return DtToMillis(dt)
+}
