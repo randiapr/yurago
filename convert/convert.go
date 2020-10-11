@@ -78,16 +78,16 @@ func MillisToTime(millis int64) time.Time {
 
 // DtToMillis Date time to millisec
 func DtToMillis(dt time.Time) int64 {
-	return dt.UnixNano() / int64(time.Millisecond)
+	return dt.Local().UnixNano() / int64(time.Millisecond)
 }
 
 // StrToMillis string date to millis
-func StrToMillis(date string) int64 {
+func StrDateTimeToMillis(date string) int64 {
 	dt, _ := time.Parse(ISO8601DT, date)
 	return DtToMillis(dt)
 }
 
-func StrDateTimeToMillis(date string) int64 {
+func StrDateToMillis(date string) int64 {
 	dt, _ := time.Parse(ISO8601D, date)
 	return DtToMillis(dt)
 }
