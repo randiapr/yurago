@@ -88,11 +88,6 @@ func StrDateTimeToMillis(date string) int64 {
 }
 
 func StrDateToMillis(date string) int64 {
-	_, err := time.LoadLocation("Asia/Jakarta")
-	if err != nil {
-		log.Printf("ERROR: StrDateToMillis: %s", err.Error())
-		return 0
-	}
 	dt, _ := time.Parse(ISO8601D, date)
 	return DtToMillis(dt)
 }
