@@ -14,16 +14,17 @@ var (
 )
 
 // Init connection
-func Init(uri, database string) {
+func Init(uri, database string) error {
 	// init connection mongo
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
-	var err error
 	client, err := mongo.Connect(ctx, options.Client().ApplyURI(uri))
 	if err != nil {
 		log.Fatalf("ERROR: %s", err.Error())
+		return err
 	}
 	myDb = client.Database(database)
+	return nil
 }
 
 // GetDatabase mongo
